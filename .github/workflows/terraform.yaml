@@ -2,9 +2,9 @@ name: Build Terraform
 
 on:
   pull_request:
-    branches: [pedro]
+    branches: [main]
   push:
-    branches: [pedro]
+    branches: [main]
   workflow_dispatch:
     inputs:
       action:
