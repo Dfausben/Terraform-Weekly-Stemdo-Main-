@@ -14,11 +14,6 @@ variable "environment" {
   default     = "prod"
 }
 
-variable "module_source" {
-  description = "URL del módulo en GitHub (source de Terraform)."
-  type        = string
-}
-
 variable "vpc_cidr" {
   description = "CIDR de la VPC"
   type        = string
