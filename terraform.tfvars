@@ -3,7 +3,6 @@ name        = "demo"
 environment = "prod"
 
 # Consume el módulo desde GitHub (recomendado: tag de versión)
-module_source = "git::https://github.com/Dfausben/Terraform-Weekly-Stemdo-Aux.git//module?ref=v1.0.0"
 
 vpc_cidr = "10.10.0.0/16"
 

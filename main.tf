@@ -1,5 +1,5 @@
 module "workload" {
-  source = var.module_source
+  source = "git::https://github.com/Dfausben/Terraform-Weekly-Stemdo-Aux.git//module?ref=v1.0.0"
 
   name     = var.name
   vpc_cidr = var.vpc_cidr
