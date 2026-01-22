@@ -1,0 +1,67 @@
+name: Build Terraform
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Acción Terraform a ejecutar"
+        required: true
+        default: "plan"
+        type: choice
+        options:
+          - plan
+          - apply
+          - destroy
+
+jobs:
+  terraform:
+    runs-on: stemdo-labs
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6
+
+      - name: Terraform Init
+        run: terraform init
+
+      # PLAN en Pull Request
+      - name: Terraform Plan
+        if: github.event_name == 'pull_request'
+        run: |
+          terraform plan -no-color > plan.txt
+
+      - name: Comentar plan en el PR
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: terraform/plan.txt
+
+      # Si el 
+      - name: Terraform Apply
+        if: github.event_name == 'push'
+        run: terraform apply -auto-approve
+
+    # Si el evento es disparado manualmente
+      # Si se solicita el plan
+      - name: Terraform Plan (manual)
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'plan'
+        run: terraform plan
+
+      # Si se solicita el apply
+      - name: Terraform Apply (manual)
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'apply'
+        run: terraform apply -auto-approve
+
+      # Si se solicita el destroy
+      - name: Terraform Destroy (manual)
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'destroy'
+        run: terraform destroy -auto-approve
