@@ -1,12 +1,12 @@
 provider "aws" {
-  region = var.region
+  region = "eu-west-3"
 
-  # Etiquetas por defecto para TODO lo que soporte tags
   default_tags {
     tags = {
-      ManagedBy   = "Terraform"
-      Project     = var.name
-      Environment = var.environment
+      Owner       = "dfaustino"
+      Project     = "Test"
+      Environment = "Sandbox"
+      ManagedBy   = "dfb_terraform"
     }
   }
 }
