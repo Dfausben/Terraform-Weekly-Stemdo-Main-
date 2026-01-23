@@ -14,8 +14,6 @@ subnets = {
 # Opcional: abre SSH desde tu IP
 # ingress_ssh_cidr = "1.2.3.4/32"
 
-create_resource_group = true
-
 instances = {
   web1 = {
     ami           = "ami-XXXXXXXX"
