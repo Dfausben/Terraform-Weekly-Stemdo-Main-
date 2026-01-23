@@ -7,8 +7,8 @@ environment = "prod"
 vpc_cidr = "10.10.0.0/16"
 
 subnets = {
-  pub_a = { cidr = "10.10.1.0/24", az = "eu-west-1a", public = true }
-  pub_b = { cidr = "10.10.2.0/24", az = "eu-west-1b", public = true }
+  pub_a = { cidr = "10.10.1.0/24", az = "eu-west-3a", public = true }
+  pub_b = { cidr = "10.10.2.0/24", az = "eu-west-3b", public = true }
 }
 
 # Opcional: abre SSH desde tu IP
