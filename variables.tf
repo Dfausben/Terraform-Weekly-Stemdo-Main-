@@ -45,10 +45,3 @@ variable "ingress_ssh_cidr" {
   type        = string
   default     = null
 }
-
-# Opcional: si quieres configurar el Resource Group del módulo desde aquí
-variable "create_resource_group" {
-  description = "Crear AWS Resource Group para agrupar recursos por tags"
-  type        = bool
-  default     = true
-}

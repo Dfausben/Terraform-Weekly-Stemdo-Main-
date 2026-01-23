@@ -1,9 +1,9 @@
 region      = "eu-west-1"
 name        = "demo"
-environment = "prod"
+environment = "pedro"
 
 # Consume el módulo desde GitHub (recomendado: tag de versión)
-module_source = "git::https://github.com/Dfausben/Terraform-Weekly-Stemdo-Aux.git//module?ref=v1.0.0"
+module_source = "git::https://github.com/Dfausben/Terraform-Weekly-Stemdo-Aux.git//module"
 
 vpc_cidr = "10.10.0.0/16"
 
@@ -14,8 +14,6 @@ subnets = {
 
 # Opcional: abre SSH desde tu IP
 # ingress_ssh_cidr = "1.2.3.4/32"
-
-create_resource_group = true
 
 instances = {
   web1 = {
