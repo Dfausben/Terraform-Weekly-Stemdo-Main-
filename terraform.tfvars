@@ -1,9 +1,8 @@
 region      = "eu-west-1"
 name        = "demo"
-environment = "pedro"
+environment = "prod"
 
 # Consume el módulo desde GitHub (recomendado: tag de versión)
-module_source = "git::https://github.com/Dfausben/Terraform-Weekly-Stemdo-Aux.git//module"
 
 vpc_cidr = "10.10.0.0/16"
 
