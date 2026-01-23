@@ -34,7 +34,7 @@ module "workload" {
 
   instances        = local.resolved_instances
   ingress_ssh_cidr = var.ingress_ssh_cidr
-  enable_alb       = false
+  enable_alb       = var.enable_alb
 
   # common_tags se puede dejar vacío porque usamos default_tags en provider
   common_tags = {}

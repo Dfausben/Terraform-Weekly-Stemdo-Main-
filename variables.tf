@@ -45,3 +45,9 @@ variable "ingress_ssh_cidr" {
   type        = string
   default     = null
 }
+
+variable "enable_alb" {
+  description = "Habilita el ALB y recursos relacionados"
+  type        = bool
+  default     = false
+}
